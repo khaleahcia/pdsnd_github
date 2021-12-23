@@ -6,16 +6,18 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
+
 def get_filters():
     """
-    Asks user to specify a city, month, and day to analyze.
+    Ask user to specify a city, month, and day to analyze.
 
     Returns:
         (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+        (str) month - name of the month to filter by, or "all" to apply no
+            month filter
+        (str) day - name of the day of week to filter by, or "all" to apply no
+            day filter
     """
-
     print('H   H    EEEEE    L        L         OOOO     !!!')
     print('H   H    E        L        L        O    O    !!!')
     print('H   H    E        L        L        O    O    !!!')
@@ -37,13 +39,15 @@ def get_filters():
     print('-'*40)
     return city, month, day
 
+
 def get_input(question, filter_info):
     """
-    Gets the input from user and checks to see if input is valid
+    Get the input from user and checks to see if input is valid
 
     Args:
         (str) question - text of question asking user for correct input
-        (sequence type) filter_info - list or dictionary that has valid inputs in lowercase
+        (sequence type) filter_info - list or dictionary that has valid inputs
+            in lowercase
 
     Returns:
         (str) String of valid data in lowercase
@@ -59,18 +63,20 @@ def get_input(question, filter_info):
         else:
             print('\nInvalid input. Please try again.')
 
+
 def load_data(city, month, day):
     """
-    Loads data for the specified city and filters by month and day if applicable.
+    Load data for the specified city and filters by month and day if applicable.
 
     Args:
         (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+        (str) month - name of the month to filter by, or "all" to apply no
+            month filter
+        (str) day - name of the day of week to filter by, or "all" to apply no
+            day filter
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
-
     # Loads data file
     df = pd.read_csv(CITY_DATA[city])
 
@@ -97,8 +103,7 @@ def load_data(city, month, day):
 
 
 def time_stats(df):
-    """Displays statistics on the most frequent times of travel."""
-
+    """Display statistics on the most frequent times of travel."""
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
@@ -120,8 +125,7 @@ def time_stats(df):
 
 
 def station_stats(df):
-    """Displays statistics on the most popular stations and trip."""
-
+    """Display statistics on the most popular stations and trip."""
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
@@ -142,8 +146,7 @@ def station_stats(df):
 
 
 def trip_duration_stats(df):
-    """Displays statistics on the total and average trip duration."""
-
+    """Display statistics on the total and average trip duration."""
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
@@ -158,8 +161,7 @@ def trip_duration_stats(df):
 
 
 def user_stats(df, city):
-    """Displays statistics on bikeshare users."""
-
+    """Display statistics on bikeshare users."""
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
@@ -184,7 +186,7 @@ def user_stats(df, city):
 
 
 def raw_data(df):
-    """Displays raw data from dataframe"""
+    """Display raw data from dataframe."""
     raw_data_question = input('\nWould you like to see raw data? Enter yes or no.\n')
     if raw_data_question.lower() != 'yes':
         return
